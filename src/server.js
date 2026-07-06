@@ -5,11 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const router = require("./routes/user.routes.js")
 
-
-app.use("/user",router,(req,res)=>{
-    res.send("successfully working")
-    console.log("hello world")
-})
+app.use("/user",router)
 
 connectDB()
 .then(()=>{
@@ -22,5 +18,9 @@ connectDB()
 .catch((error)=>{
     console.log("Failed to connect database"+ error.message)
 })
+
+
+
+
 
 

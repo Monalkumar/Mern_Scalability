@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/user",(req,res)=>{
+router.get("/profile",(req,res)=>{
     res.send("successuflly api crreated for this app")
 })
 
