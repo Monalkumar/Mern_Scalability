@@ -3,9 +3,13 @@ const app = express();
 const connectDB = require("./config/db.js");
 const dotenv = require("dotenv");
 dotenv.config();
-const router = require("./routes/user.routes.js")
+const router = require("./routes/user.routes.js");
+app.use(express.json());
+
+
 
 app.use("/user",router)
+
 
 connectDB()
 .then(()=>{
