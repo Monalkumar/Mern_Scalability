@@ -12,8 +12,11 @@ const registerUser = async (req, res) => {
       res.status(409).send("User already exists");
       return;
     } else {
-    
-      const user = await User.create({ name, email, password });
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hashPassword = await bcrypt.hash(password, salt);
+    console.log(hashPassword)
+    const user = await User.create({ name, email, password:hashPassword });
       res.status(201).send("user created successfully");
     } 
     
