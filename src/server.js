@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/db.js");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser")
 dotenv.config();
 const router = require("./routes/user.routes.js");
 app.use(express.json());
-
+app.use(cookieParser());
 app.use("/user",router)
 
 
