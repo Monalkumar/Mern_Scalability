@@ -3,11 +3,12 @@ const app = express();
 const connectDB = require("./config/db.js");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser")
+
 dotenv.config();
 const router = require("./routes/user.routes.js");
 app.use(express.json());
 app.use(cookieParser());
-app.use("/user",router)
+app.use("/user",router);
 
 
 connectDB()
@@ -15,13 +16,11 @@ connectDB()
     console.log("database connected successfully")
     app.listen(process.env.PORT,()=>{
     console.log("server is running")
-    console.log(process.env.PORT)
-})
+    console.log(process.env.PORT)})
 })
 .catch((error)=>{
     console.log("Failed to connect database"+ error.message)
 })
-
 
 
 
